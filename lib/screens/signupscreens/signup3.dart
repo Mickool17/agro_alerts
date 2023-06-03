@@ -6,7 +6,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 // ignore: camel_case_types
 class signupscreen3 extends StatefulWidget {
-  const signupscreen3({super.key});
+  final VoidCallback onFinish;
+
+  const signupscreen3({Key? key, required this.onFinish}) : super(key: key);
 
   @override
   State<signupscreen3> createState() => _signupscreen3State();
@@ -14,7 +16,16 @@ class signupscreen3 extends StatefulWidget {
 
 // ignore: camel_case_types
 class _signupscreen3State extends State<signupscreen3> {
-   List<bool> checkBoxValues = [false, false, false, false, false, false,false,false];
+  List<bool> checkBoxValues = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
   List<String> checkBoxNames = [
     "Grains (wheat, rice, corn, barley, oats, etc)",
     "Fruits (apples, oranges, bananas, etc)",
@@ -33,7 +44,6 @@ class _signupscreen3State extends State<signupscreen3> {
           child: Center(
             child: Expanded(
               child: Column(children: [
-              
                 SizedBox(
                   height: 90.h,
                 ),
@@ -50,11 +60,11 @@ class _signupscreen3State extends State<signupscreen3> {
                             height: 46.h,
                             width: 46.w,
                             child: CircleAvatar(
-                              backgroundColor: Colors.green,
-                              
-                              child: Icon(Icons.check,size: 25.sp,)
-                              
-                            ),
+                                backgroundColor: Colors.green,
+                                child: Icon(
+                                  Icons.check,
+                                  size: 25.sp,
+                                )),
                           ),
                           SizedBox(height: 8.h),
                           Container(
@@ -70,12 +80,11 @@ class _signupscreen3State extends State<signupscreen3> {
                       height: 46.h,
                       width: 46.w,
                       child: CircleAvatar(
-                        backgroundColor: Colors.green,
-                        
-                     
-                   
-                        child:Icon(Icons.check,size: 25.sp,)
-                      ),
+                          backgroundColor: Colors.green,
+                          child: Icon(
+                            Icons.check,
+                            size: 25.sp,
+                          )),
                     ),
                     SizedBox(height: 8.h),
                     Container(
@@ -88,8 +97,6 @@ class _signupscreen3State extends State<signupscreen3> {
                       height: 46.h,
                       width: 46.w,
                       child: CircleAvatar(
-                      
-                      
                         child: Text(
                           "3",
                           style: GoogleFonts.poppins(
@@ -106,48 +113,49 @@ class _signupscreen3State extends State<signupscreen3> {
                 ),
                 SizedBox(
                   height: 50.h,
-              ),
-            
-Padding(
-  padding: EdgeInsets.symmetric(horizontal: 25.w),
-  child: Container(
-    decoration: BoxDecoration(
-      border: Border.all(color: Colors.white),
-      borderRadius: BorderRadius.circular(5.r),
-    ),
-    child: Container(
-  decoration: BoxDecoration(
-    border: Border.all(color: Colors.black),
-    borderRadius: BorderRadius.circular(5.r),
-  ),
-  child: ExpansionTile(
-    title:  Text(
-      "Select  all that apply",
-      style: GoogleFonts.poppins(fontSize: 15.0, fontWeight: FontWeight.w500,color: Color(0xff1F2D5A)),
-    ),
-    children: checkBoxNames
-        .asMap()
-        .entries
-        .map(
-          (entry) => CheckboxListTile(
-            title: Text(entry.value),
-            value: checkBoxValues[entry.key],
-            onChanged: (bool? value) {
-              setState(() {
-                checkBoxValues[entry.key] = value ?? false;
-              });
-            },
-            controlAffinity: ListTileControlAffinity.leading,
-          ),
-        )
-        .toList(),
-  ),
-),
-
-  ),
-),
-
-
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25.w),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white),
+                      borderRadius: BorderRadius.circular(5.r),
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(5.r),
+                      ),
+                      child: ExpansionTile(
+                        title: Text(
+                          "Select  all that apply",
+                          style: GoogleFonts.poppins(
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xff1F2D5A)),
+                        ),
+                        children: checkBoxNames
+                            .asMap()
+                            .entries
+                            .map(
+                              (entry) => CheckboxListTile(
+                              
+                                title: Text(entry.value,style: TextStyle(color: Colors.black),),
+                                value: checkBoxValues[entry.key],
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    checkBoxValues[entry.key] = value ?? false;
+                                  });
+                                },
+                                controlAffinity:
+                                    ListTileControlAffinity.leading,
+                              ),
+                            )
+                            .toList(),
+                      ),
+                    ),
+                  ),
+                ),
                 SizedBox(
                   height: 20.h,
                 ),
@@ -169,11 +177,11 @@ Padding(
                     height: 45.h,
                     width: 312.w,
                     decoration: BoxDecoration(
-
                       border: Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(5.r),
                     ),
                     child: const TextField(
+                       style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
@@ -202,20 +210,19 @@ Padding(
                     height: 45.h,
                     width: 312.w,
                     decoration: BoxDecoration(
-                     
                       border: Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(5.r),
                     ),
                     child: const TextField(
+                       style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
-                        suffixIcon: Icon(Icons.remove_red_eye),
+                      
                         border: OutlineInputBorder(),
                       ),
                     ),
                   ),
                 ),
-          
                 SizedBox(
                   height: 50.h,
                 ),
@@ -226,8 +233,7 @@ Padding(
                       borderRadius: BorderRadius.circular(10)),
                   color: kprimarycolor,
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const signinscreen()));
+                    _handleFinish();
                   },
                   child: Text(
                     "SIGN UP",
@@ -237,23 +243,26 @@ Padding(
                         fontWeight: FontWeight.w500),
                   ),
                 ),
-                SizedBox(height: 20.h,),
+                SizedBox(
+                  height: 20.h,
+                ),
                 Text(
-                    "Back",
-                    style: GoogleFonts.poppins(
-                        fontSize: 15.sp,
-                        color:const Color(0xff1F2D5A),
-                        fontWeight: FontWeight.w500,decoration:TextDecoration.underline),
-                  ),
-              
-            
-             
-               
+                  "Back",
+                  style: GoogleFonts.poppins(
+                      fontSize: 15.sp,
+                      color: const Color(0xff1F2D5A),
+                      fontWeight: FontWeight.w500,
+                      decoration: TextDecoration.underline),
+                ),
               ]),
             ),
           ),
         ),
       ),
     );
+  }
+
+  void _handleFinish() {
+    widget.onFinish();
   }
 }

@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 import 'package:agro_alerts/config.dart';
 import 'package:agro_alerts/onboarding/page1.dart';
 import 'package:agro_alerts/onboarding/page2.dart';
@@ -18,8 +10,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class onboardingmain extends StatefulWidget {
+  final VoidCallback onFinish;
+
+  const onboardingmain({Key? key, required this.onFinish}) : super(key: key);
   static const String idScreen = "onboardingmain";
-  const onboardingmain({super.key});
 
   @override
   State<onboardingmain> createState() => _onboardingmainState();
@@ -125,8 +119,7 @@ class _onboardingmainState extends State<onboardingmain> {
                         borderRadius: BorderRadius.circular(5)),
                     color: kprimarycolor,
                     onPressed: () {
-                      Navigator.push(
-                          context, MaterialPageRoute(builder: (_) => const signupscreen1()));
+                      _handleFinish();
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -141,7 +134,6 @@ class _onboardingmainState extends State<onboardingmain> {
                         const SizedBox(
                           width: 5,
                         ),
-                        
                       ],
                     ),
                   ),
@@ -153,7 +145,7 @@ class _onboardingmainState extends State<onboardingmain> {
                     height: 50.h,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),
-                    color:kprimarycolor,
+                    color: kprimarycolor,
                     onPressed: () {
                       nextPage();
                     },
@@ -180,5 +172,9 @@ class _onboardingmainState extends State<onboardingmain> {
                   ),
                 )
         ]));
+  }
+
+  void _handleFinish() {
+    widget.onFinish();
   }
 }

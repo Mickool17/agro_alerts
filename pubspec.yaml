@@ -39,6 +39,15 @@ dependencies:
   flutter_screenutil: ^5.5.4
   smooth_page_indicator: ^1.0.0+2
   google_fonts: ^3.0.1
+  http: ^0.13.3
+  stacked: ^3.0.0+2
+  intl: ^0.18.1
+  shared_preferences: ^2.1.1
+  geolocator: ^9.0.2
+  connectivity: ^3.0.6
+  permission_handler: ^10.2.0
+  firebase_core: ^2.13.0
+
 
 
 dev_dependencies:

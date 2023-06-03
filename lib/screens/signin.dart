@@ -7,7 +7,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 // ignore: camel_case_types
 class signinscreen extends StatefulWidget {
-  const signinscreen({super.key});
+  final VoidCallback onFinish;
+
+  const signinscreen({Key? key, required this.onFinish}) : super(key: key);
 
   @override
   State<signinscreen> createState() => _signinscreenState();
@@ -44,9 +46,6 @@ class _signinscreenState extends State<signinscreen> {
                 SizedBox(
                   height: 34.h,
                 ),
-              
-                
-                
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.w),
                   child: Align(
@@ -65,11 +64,11 @@ class _signinscreenState extends State<signinscreen> {
                     height: 45.h,
                     width: 312.w,
                     decoration: BoxDecoration(
-
                       border: Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(5.r),
                     ),
                     child: const TextField(
+                       style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
@@ -85,6 +84,7 @@ class _signinscreenState extends State<signinscreen> {
                   child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Text(
+                        
                         "Password",
                         style: GoogleFonts.poppins(
                             color: const Color(0xff1F2D5A),
@@ -98,11 +98,12 @@ class _signinscreenState extends State<signinscreen> {
                     height: 45.h,
                     width: 312.w,
                     decoration: BoxDecoration(
-                     
                       border: Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(5.r),
                     ),
                     child: const TextField(
+                      obscureText: true,
+                       style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         suffixIcon: Icon(Icons.remove_red_eye),
@@ -111,26 +112,27 @@ class _signinscreenState extends State<signinscreen> {
                     ),
                   ),
                 ),
-              Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 20.w),
-                child: Row(
-  children: [
-    Checkbox(
-      
-      value: checkBoxValue, // Define this variable at the class level
-      onChanged: (bool? value) {
-        setState(() {
-          checkBoxValue = value ?? false;
-        });
-      },
-    ),
-   Text(
-      "Remember me ?",
-      style: TextStyle(fontSize: 16.0.sp, fontWeight: FontWeight.w500),
-    ),
-  ],
-),
-              ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Row(
+                    children: [
+                      Checkbox(
+                        value:
+                            checkBoxValue, // Define this variable at the class level
+                        onChanged: (bool? value) {
+                          setState(() {
+                            checkBoxValue = value ?? false;
+                          });
+                        },
+                      ),
+                      Text(
+                        "Remember me ?",
+                        style: TextStyle(
+                            fontSize: 16.0.sp, fontWeight: FontWeight.w500,color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
                 SizedBox(
                   height: 47.h,
                 ),
@@ -141,8 +143,7 @@ class _signinscreenState extends State<signinscreen> {
                       borderRadius: BorderRadius.circular(10)),
                   color: kprimarycolor,
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const HomeScreen()));
+                    _handleFinish();
                   },
                   child: Text(
                     "Next",
@@ -155,34 +156,42 @@ class _signinscreenState extends State<signinscreen> {
                 const SizedBox(
                   height: 15,
                 ),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text("Forgot Password ?",style: GoogleFonts.poppins(fontSize: 15.sp,fontWeight: FontWeight.w500,color: Color(0xff37474F)),),
-                    SizedBox(width: 24.w,)
+                    Text(
+                      "Forgot Password ?",
+                      style: GoogleFonts.poppins(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xff37474F)),
+                    ),
+                    SizedBox(
+                      width: 24.w,
+                    )
                   ],
                 ),
-                  SizedBox(height: 36.h,),
-                
+                SizedBox(
+                  height: 36.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                            height: 1,
-                            width: 133,
-                            margin: const EdgeInsets.symmetric(horizontal: 15),
-                            color: Colors.black,
-                          ),
+                      height: 1,
+                      width: 133,
+                      margin: const EdgeInsets.symmetric(horizontal: 15),
+                      color: Colors.black,
+                    ),
                     Text("OR",
                         style: GoogleFonts.urbanist(
                             fontSize: 14.sp, fontWeight: FontWeight.w400)),
-                            Container(
-                            height: 1,
-                            width: 133,
-                            margin: const EdgeInsets.symmetric(horizontal: 15),
-                            color: Colors.black,
-                          ),
+                    Container(
+                      height: 1,
+                      width: 133,
+                      margin: const EdgeInsets.symmetric(horizontal: 15),
+                      color: Colors.black,
+                    ),
                   ],
                 ),
                 SizedBox(
@@ -265,5 +274,9 @@ class _signinscreenState extends State<signinscreen> {
         ),
       ),
     );
+  }
+
+  void _handleFinish() {
+    widget.onFinish();
   }
 }

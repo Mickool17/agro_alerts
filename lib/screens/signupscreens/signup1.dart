@@ -6,7 +6,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 // ignore: camel_case_types
 class signupscreen1 extends StatefulWidget {
-  const signupscreen1({super.key});
+  final VoidCallback onFinish;
+
+  const signupscreen1({Key? key, required this.onFinish}) : super(key: key);
 
   @override
   State<signupscreen1> createState() => _signupscreenState();
@@ -55,11 +57,11 @@ class _signupscreenState extends State<signupscreen1> {
                             height: 46.h,
                             width: 46.w,
                             child: CircleAvatar(
-                              
                               child: Text(
                                 "1",
                                 style: GoogleFonts.poppins(
-                                    fontSize: 24.sp, fontWeight: FontWeight.w500),
+                                    fontSize: 24.sp,
+                                    fontWeight: FontWeight.w500),
                               ),
                             ),
                           ),
@@ -77,9 +79,7 @@ class _signupscreenState extends State<signupscreen1> {
                       height: 46.h,
                       width: 46.w,
                       child: CircleAvatar(
-                        
                         backgroundColor: const Color(0xffD9D9D9),
-                   
                         child: Text(
                           "2",
                           style: GoogleFonts.poppins(
@@ -101,7 +101,6 @@ class _signupscreenState extends State<signupscreen1> {
                       width: 46.w,
                       child: CircleAvatar(
                         backgroundColor: const Color(0xffD9D9D9),
-                      
                         child: Text(
                           "3",
                           style: GoogleFonts.poppins(
@@ -141,6 +140,8 @@ class _signupscreenState extends State<signupscreen1> {
                       borderRadius: BorderRadius.circular(5.r),
                     ),
                     child: const TextField(
+                      style: TextStyle(color: Colors.black),
+                      
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
@@ -169,11 +170,11 @@ class _signupscreenState extends State<signupscreen1> {
                     height: 45.h,
                     width: 312.w,
                     decoration: BoxDecoration(
-
                       border: Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(5.r),
                     ),
                     child: const TextField(
+                       style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
@@ -202,11 +203,12 @@ class _signupscreenState extends State<signupscreen1> {
                     height: 45.h,
                     width: 312.w,
                     decoration: BoxDecoration(
-                     
                       border: Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(5.r),
                     ),
                     child: const TextField(
+                      obscureText: true,
+                       style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         suffixIcon: Icon(Icons.remove_red_eye),
@@ -237,8 +239,7 @@ class _signupscreenState extends State<signupscreen1> {
                       borderRadius: BorderRadius.circular(10)),
                   color: kprimarycolor,
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const signupscreen2()));
+                    _handleFinish();
                   },
                   child: Text(
                     "Next",
@@ -254,24 +255,24 @@ class _signupscreenState extends State<signupscreen1> {
                 const SizedBox(
                   height: 10,
                 ),
-               Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                            height: 1,
-                            width: 133,
-                            margin: const EdgeInsets.symmetric(horizontal: 15),
-                            color: Colors.black,
-                          ),
+                      height: 1,
+                      width: 133,
+                      margin: const EdgeInsets.symmetric(horizontal: 15),
+                      color: Colors.black,
+                    ),
                     Text("OR",
                         style: GoogleFonts.urbanist(
                             fontSize: 14.sp, fontWeight: FontWeight.w400)),
-                            Container(
-                            height: 1,
-                            width: 133,
-                            margin: const EdgeInsets.symmetric(horizontal: 15),
-                            color: Colors.black,
-                          ),
+                    Container(
+                      height: 1,
+                      width: 133,
+                      margin: const EdgeInsets.symmetric(horizontal: 15),
+                      color: Colors.black,
+                    ),
                   ],
                 ),
                 SizedBox(
@@ -354,5 +355,9 @@ class _signupscreenState extends State<signupscreen1> {
         ),
       ),
     );
+  }
+
+  void _handleFinish() {
+    widget.onFinish();
   }
 }
