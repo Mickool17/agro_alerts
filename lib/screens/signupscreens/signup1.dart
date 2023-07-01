@@ -14,6 +14,8 @@ class signupscreen1 extends StatefulWidget {
   State<signupscreen1> createState() => _signupscreenState();
 }
 
+bool eye = true;
+
 // ignore: camel_case_types
 class _signupscreenState extends State<signupscreen1> {
   @override
@@ -24,126 +26,46 @@ class _signupscreenState extends State<signupscreen1> {
           child: Center(
             child: Expanded(
               child: Column(children: [
-                SizedBox(
-                  height: 30.h,
-                ),
                 Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 24),
-                      child: Text(
-                        "SIGN UP",
-                        style: GoogleFonts.urbanist(
-                            color: const Color(0xff1F2D5A),
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ),
+                    SizedBox(
+                        height: 200,
+                        child: Image.asset("images/registration logo.png")),
                   ],
-                ),
-                SizedBox(
-                  height: 32.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 24.w,
-                          ),
-                          SizedBox(
-                            height: 46.h,
-                            width: 46.w,
-                            child: CircleAvatar(
-                              child: Text(
-                                "1",
-                                style: GoogleFonts.poppins(
-                                    fontSize: 24.sp,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 8.h),
-                          Container(
-                            height: 1,
-                            width: 66,
-                            margin: const EdgeInsets.symmetric(horizontal: 15),
-                            color: Colors.black,
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 46.h,
-                      width: 46.w,
-                      child: CircleAvatar(
-                        backgroundColor: const Color(0xffD9D9D9),
-                        child: Text(
-                          "2",
-                          style: GoogleFonts.poppins(
-                              fontSize: 24.sp,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 8.h),
-                    Container(
-                      height: 1,
-                      width: 66,
-                      margin: const EdgeInsets.symmetric(horizontal: 15),
-                      color: Colors.black,
-                    ),
-                    SizedBox(
-                      height: 46.h,
-                      width: 46.w,
-                      child: CircleAvatar(
-                        backgroundColor: const Color(0xffD9D9D9),
-                        child: Text(
-                          "3",
-                          style: GoogleFonts.poppins(
-                              fontSize: 24.sp,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 24.w,
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 50.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25.w),
-                  child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text(
-                        "Name",
-                        style: GoogleFonts.poppins(
-                            color: const Color(0xff1F2D5A),
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w500),
-                      )),
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Text(
+                    "Create your account",
+                    style: GoogleFonts.montserrat(
+                        color: ktextcolor,
+                        fontSize: 32.sp,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ),
+                SizedBox(
+                  height: 107.h,
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.w),
                   child: Container(
-                    height: 45.h,
-                    width: 312.w,
+                    height: 49.h,
+                    width: 388.w,
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(5.r),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
-                    child: const TextField(
+                    child: TextField(
                       style: TextStyle(color: Colors.black),
-                      
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
+                        label: Text(
+                          "Full Name",
+                          style: GoogleFonts.montserrat(
+                              color: Colors.black,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w400),
+                        ),
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -154,29 +76,24 @@ class _signupscreenState extends State<signupscreen1> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.w),
-                  child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text(
-                        "Email",
-                        style: GoogleFonts.poppins(
-                            color: const Color(0xff1F2D5A),
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w500),
-                      )),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25.w),
                   child: Container(
-                    height: 45.h,
-                    width: 312.w,
+                    height: 49.h,
+                    width: 388.w,
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(5.r),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
-                    child: const TextField(
-                       style: TextStyle(color: Colors.black),
+                    child: TextField(
+                      style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
+                        label: Text(
+                          "Email Address",
+                          style: GoogleFonts.montserrat(
+                              color: Colors.black,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w400),
+                        ),
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -187,35 +104,33 @@ class _signupscreenState extends State<signupscreen1> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.w),
-                  child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text(
-                        "Password",
-                        style: GoogleFonts.poppins(
-                            color: const Color(0xff1F2D5A),
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w500),
-                      )),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25.w),
                   child: Container(
-                    height: 45.h,
-                    width: 312.w,
+                    height: 49.h,
+                    width: 388.w,
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(5.r),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
-                    child: const TextField(
+                    child: TextField(
                       obscureText: true,
-                       style: TextStyle(color: Colors.black),
+                      style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
-                        suffixIcon: Icon(Icons.remove_red_eye),
+                        label: Text(
+                          "Password",
+                          style: GoogleFonts.montserrat(
+                              color: Colors.black,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        suffixIcon: GestureDetector(child: Icon(Icons.remove_red_eye_sharp)),
                         border: OutlineInputBorder(),
                       ),
                     ),
                   ),
+                ),
+                SizedBox(
+                  height: 10.h,
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.w),
@@ -233,20 +148,21 @@ class _signupscreenState extends State<signupscreen1> {
                   height: 25.h,
                 ),
                 MaterialButton(
-                  minWidth: 312.w,
-                  height: 50.h,
+                  minWidth: 388.w,
+                  height: 59.h,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
-                  color: kprimarycolor,
+                  color: ktextcolor,
                   onPressed: () {
                     _handleFinish();
                   },
                   child: Text(
                     "Next",
-                    style: GoogleFonts.poppins(
-                        fontSize: 15.sp,
+                    style: GoogleFonts.montserrat(
                         color: Colors.white,
-                        fontWeight: FontWeight.w500),
+                        fontSize: 19.sp,
+                        fontWeight: FontWeight.w600,
+                        fontStyle: FontStyle.normal),
                   ),
                 ),
                 const SizedBox(
@@ -260,16 +176,20 @@ class _signupscreenState extends State<signupscreen1> {
                   children: [
                     Container(
                       height: 1,
-                      width: 133,
+                      width: 107,
                       margin: const EdgeInsets.symmetric(horizontal: 15),
                       color: Colors.black,
                     ),
-                    Text("OR",
-                        style: GoogleFonts.urbanist(
-                            fontSize: 14.sp, fontWeight: FontWeight.w400)),
+                    Text(
+                      "Or register with",
+                      style: GoogleFonts.montserrat(
+                          color: Colors.black,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w400),
+                    ),
                     Container(
                       height: 1,
-                      width: 133,
+                      width: 107,
                       margin: const EdgeInsets.symmetric(horizontal: 15),
                       color: Colors.black,
                     ),
@@ -279,8 +199,8 @@ class _signupscreenState extends State<signupscreen1> {
                   height: 30.h,
                 ),
                 SizedBox(
-                  height: 45.h,
-                  width: 312.w,
+                  height: 58.h,
+                  width: 385.w,
                   child: ElevatedButton(
                     onPressed: () {
                       // Your action on button press
@@ -304,11 +224,14 @@ class _signupscreenState extends State<signupscreen1> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Image(image: AssetImage("images/google.png")),
-                        Text("Sign in with Google",
-                            style: GoogleFonts.poppins(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.black)),
+                        Text(
+                          "Register with Google",
+                          style: GoogleFonts.montserrat(
+                              color: Colors.black,
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.w400,
+                              fontStyle: FontStyle.normal),
+                        ),
                         SizedBox(
                           width: 25.w,
                         )
@@ -317,7 +240,7 @@ class _signupscreenState extends State<signupscreen1> {
                   ),
                 ),
                 SizedBox(
-                  height: 30.h,
+                  height: 10.h,
                 ),
                 GestureDetector(
                   child: Row(
@@ -328,16 +251,22 @@ class _signupscreenState extends State<signupscreen1> {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text("Already a user ?",
-                            style: GoogleFonts.poppins(
-                                fontSize: 15.sp, fontWeight: FontWeight.w500)),
+                        child: Text(
+                          "Already a User ?",
+                          style: GoogleFonts.montserrat(
+                              color: Colors.black,
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w400,
+                              fontStyle: FontStyle.normal),
+                        ),
                       ),
                       Text(
-                        'LOGIN',
-                        style: TextStyle(
-                            decoration: TextDecoration.underline,
+                        "Login",
+                        style: GoogleFonts.montserrat(
+                            color: ktextcolor,
                             fontSize: 15.sp,
-                            fontWeight: FontWeight.w500),
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.normal),
                       ),
                     ],
                   ),

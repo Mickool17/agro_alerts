@@ -11,25 +11,9 @@ class page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-          child: Center(
-        child: Column(
-          children: [
-           
-          
-            const Image(image: AssetImage("images/onboardimage2.png")),
-            
-           SizedBox(height: 70.h,),
-         
-           
-            Text(
-              "  Get personalized suggestions \nfor crops that are best suited for\n                    your farm",
-              style: GoogleFonts.poppins(fontSize: 20.sp,fontWeight: FontWeight.w500,color: ktextcolor),
-            )
-          ],
-        ),
-      )),
+    return const Scaffold(
+      backgroundColor: Colors.white,
+      body: Image(image: AssetImage("images/onboardimage2.png")),
     );
   }
 }

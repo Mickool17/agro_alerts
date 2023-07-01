@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:agro_alerts/bottom_nav/bottom_navi.dart';
+import 'package:agro_alerts/draggablewidget.dart';
 import 'package:agro_alerts/screens/home.dart';
 import 'package:agro_alerts/screens/homedarl.dart';
 import 'package:agro_alerts/screens/signin.dart';
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360, 800),
+      designSize: const Size(428, 926),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
             textTheme:
                 Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
           ),
-          
+          // home: MyHomePage(title: "hhh"),
           home: Builder(
             builder: (context) => SplashScreen(
               onFinish: () {
@@ -45,11 +47,7 @@ class MyApp extends StatelessWidget {
                       onFinish: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (_) => signupscreen2(
-                              onFinish: () {
-                                Navigator.push(
-                                  context,
+                        
                                   MaterialPageRoute(
                                     builder: (_) => signupscreen3(
                                       onFinish: () {
@@ -66,18 +64,15 @@ class MyApp extends StatelessWidget {
                                                   MaterialPageRoute(
                                                     builder: (_) => route ==
                                                             'HomeScreen'
-                                                        ? const HomeScreen()
-                                                        : const HomeScreendark(),
+                                                        ? const agronavitem()
+                                                        : const agronavitem(),
                                                   ),
                                                 );
                                               },
                                             ),
                                           ),
                                         );
-                                      },
-                                    ),
-                                  ),
-                                );
+                                 
                               },
                             ),
                           ),

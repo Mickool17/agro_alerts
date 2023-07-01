@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:agro_alerts/config.dart';
 import 'package:agro_alerts/onboarding/mainonbording.dart';
 import 'package:flutter/material.dart';
 
@@ -31,10 +32,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1F2D5A),
+      backgroundColor: ktextcolor,
       body: Center(
         child: Image.asset(
-          "images/Splash Screen.png",
+          "images/splashlogo.png",
           fit: BoxFit.cover,
         ),
       ),

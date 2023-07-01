@@ -41,83 +41,98 @@ class _onboardingmainState extends State<onboardingmain> {
         backgroundColor: Colors.white,
         body: Column(children: [
           SizedBox(
-            height: 70.h,
-          ),
-          GestureDetector(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  "Skip",
-                  style: GoogleFonts.urbanist(
-                    fontSize: 15.sp,
-                    fontWeight: FontWeight.w500,
-                    color: ktextcolor,
-                  ),
-                ),
-                SizedBox(
-                  width: 5.w,
-                ),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  size: 14.r,
-                  color: const Color(0xFF393A8D),
-                ),
-                SizedBox(
-                  width: 30.w,
-                )
-              ],
-            ),
-            onTap: () {
-              _controller.jumpToPage(2);
-            },
+            height: 195.41.h,
           ),
           SizedBox(
-            child: Container(
-              height: 490.h,
-              child: PageView(
-                controller: _controller,
-                onPageChanged: (index) {
-                  setState(() {
-                    onLastPage = (index == 2);
-                    onSecondPage = (index == 1);
-                    onFirstPage = (index == 0);
-                  });
-                },
-                children: const [
-                  page1(),
-                  page2(),
-                  page3(),
-                ],
-              ),
+            height: 255.41.h,
+            width: 255.41.w,
+            child: PageView(
+              controller: _controller,
+              onPageChanged: (index) {
+                setState(() {
+                  onLastPage = (index == 2);
+                  onSecondPage = (index == 1);
+                  onFirstPage = (index == 0);
+                });
+              },
+              children: const [
+                page1(),
+                page2(),
+                page3(),
+              ],
             ),
           ),
-          const SizedBox(
-            height: 5,
+          SizedBox(
+            height: 50.51.h,
           ),
           SmoothPageIndicator(
             controller: _controller,
             count: 3,
             axisDirection: Axis.horizontal,
             effect: SlideEffect(
-              dotHeight: 6.h,
-              dotWidth: 15.w,
+              dotHeight: 5.47.h,
+              dotWidth: 84.82.w,
               dotColor: const Color.fromARGB(34, 34, 59, 1),
-              activeDotColor: const Color(0xFF393A8D),
+              activeDotColor: ktextcolor,
             ),
           ),
+          onFirstPage?
           SizedBox(
-            height: 100.h,
+             height: 50.51.h,
+          ):onSecondPage?
+           SizedBox(
+             height: 30.73.h,
+          ):onLastPage?
+           SizedBox(
+             height: 20.73.h,
+          ):SizedBox(),
+
+          onFirstPage
+              ? Column(
+                  children: [
+                    pagewordshead[0],
+                    SizedBox(
+                      height: 18.22.h,
+                    ),
+                    pagewordsheadsub[0]
+                  ],
+                )
+              : onSecondPage
+                  ? Column(
+                      children: [
+                        pagewordshead[1],
+                        SizedBox(
+                          height: 18.22.h,
+                        ),
+                        pagewordsheadsub[1]
+                      ],
+                    )
+                  : onLastPage
+                      ? Column(
+                          children: [
+                            pagewordshead[2],
+                            SizedBox(
+                              height: 18.22.h,
+                            ),
+                            pagewordsheadsub[2]
+                          ],
+                        )
+                      : Text(
+                          "null",
+                          style: TextStyle(color: Colors.red),
+                        ),
+          SizedBox(
+            height: 126.43.h,
           ),
           onLastPage
               ? Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: MaterialButton(
-                    minWidth: 312.w,
+                    minWidth: 388.w,
                     height: 50.h,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5)),
-                    color: kprimarycolor,
+                        borderRadius: BorderRadius.circular(10)),
+                    color: ktextcolor,
                     onPressed: () {
                       _handleFinish();
                     },
@@ -126,10 +141,10 @@ class _onboardingmainState extends State<onboardingmain> {
                       children: [
                         Text(
                           "Get Started",
-                          style: GoogleFonts.poppins(
-                              fontSize: 13.sp,
+                          style: GoogleFonts.montserrat(
+                              fontSize: 20.sp,
                               color: Colors.white,
-                              fontWeight: FontWeight.w500),
+                              fontWeight: FontWeight.w600),
                         ),
                         const SizedBox(
                           width: 5,
@@ -139,42 +154,67 @@ class _onboardingmainState extends State<onboardingmain> {
                   ),
                 )
               : Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: MaterialButton(
-                    minWidth: 312.w,
-                    height: 50.h,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5)),
-                    color: kprimarycolor,
-                    onPressed: () {
-                      nextPage();
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Next",
-                          style: GoogleFonts.poppins(
-                              fontSize: 13.sp,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          _controller.jumpToPage(2);
+                        },
+                        child: Opacity(
+                          opacity: 0.8,
+                          child: Text(" Skip ",
+                              style: GoogleFonts.montserrat(
+                                  color: const Color(0xff000000),
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.w600,fontStyle: FontStyle.normal)),
                         ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        const Icon(
-                          Icons.arrow_forward_ios,
-                          size: 11,
-                          color: Colors.white,
-                        )
-                      ],
-                    ),
-                  ),
-                )
-        ]));
+                      ),
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () {
+                          _controller.nextPage(
+                              duration: Duration(microseconds: 10000),
+                              curve: Curves.linear);
+                        },
+                        child: Text(" Next ",
+                            style: GoogleFonts.montserrat(
+                                color: ktextcolor,
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.w600,fontStyle: FontStyle.normal)),
+                      ),
+                    ],
+                  )),
+        SizedBox(height: 131.04.h,)]));
   }
 
   void _handleFinish() {
     widget.onFinish();
   }
 }
+
+final List<Text> pagewordshead = [
+  Text("Be aware of the weather",
+      style: GoogleFonts.montserrat(
+          color: ktextcolor, fontSize: 24.sp, fontWeight: FontWeight.w600)),
+  Text("Personalized Suggestions",
+      style: GoogleFonts.montserrat(
+          color: ktextcolor, fontSize: 24.sp, fontWeight: FontWeight.w600)),
+  Text("Be the first to know",
+      style: GoogleFonts.montserrat(
+          color: ktextcolor, fontSize: 24.sp, fontWeight: FontWeight.w600)),
+];
+
+final List<Text> pagewordsheadsub = [
+  Text("Never be caught off guard by the\n                  weather again.",
+      style: GoogleFonts.montserrat(
+          color: Colors.black, fontSize: 16.sp, fontWeight: FontWeight.w500)),
+  Text(
+      "Get personalized suggestions for\ncrops that are best suited for your\n                          farm.",
+      style: GoogleFonts.montserrat(
+          color: Colors.black, fontSize: 16.sp, fontWeight: FontWeight.w500)),
+  Text(
+      "Stay on top of the latest weather\nevent with our notification feature.",
+      style: GoogleFonts.montserrat(
+          color: Colors.black, fontSize: 16.sp, fontWeight: FontWeight.w500)),
+];

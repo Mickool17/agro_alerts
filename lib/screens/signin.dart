@@ -26,51 +26,63 @@ class _signinscreenState extends State<signinscreen> {
           child: Center(
             child: Expanded(
               child: Column(children: [
-                SizedBox(
-                  height: 90.h,
+                  Row(
+                  children: [
+                    SizedBox(
+                        height: 200,
+                        child: Image.asset("images/registration logo.png")),
+                  ],
                 ),
                 Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24),
                       child: Text(
-                        "LOGIN",
-                        style: GoogleFonts.urbanist(
-                            color: const Color(0xff1F2D5A),
-                            fontSize: 15.sp,
+                        "WELCOME BACK!",
+                        style: GoogleFonts.montserrat(
+                            color: ktextcolor,
+                            fontSize: 32.sp,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10.h,),
+                 Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      child: Text(
+                        "Let's get you logged in and back\n                 into the action.",
+                        style: GoogleFonts.montserrat(
+                            color: Colors.black,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w500),
                       ),
                     ),
                   ],
                 ),
+                
                 SizedBox(
                   height: 34.h,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25.w),
-                  child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text(
-                        "Email",
-                        style: GoogleFonts.poppins(
-                            color: const Color(0xff1F2D5A),
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w500),
-                      )),
-                ),
+               
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.w),
                   child: Container(
-                    height: 45.h,
-                    width: 312.w,
+                    height: 49.h,
+                    width: 388.w,
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(5.r),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
-                    child: const TextField(
+                    child:  TextField(
                        style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
+                        labelText: "Email Address",labelStyle: GoogleFonts.montserrat(fontSize: 16.sp,fontWeight: FontWeight.w400),
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -79,44 +91,32 @@ class _signinscreenState extends State<signinscreen> {
                 SizedBox(
                   height: 20.h,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25.w),
-                  child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text(
-                        
-                        "Password",
-                        style: GoogleFonts.poppins(
-                            color: const Color(0xff1F2D5A),
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w500),
-                      )),
-                ),
-                Padding(
+              Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.w),
                   child: Container(
-                    height: 45.h,
-                    width: 312.w,
+                    height: 49.h,
+                    width: 388.w,
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(5.r),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
-                    child: const TextField(
-                      obscureText: true,
+                    child:  TextField(
                        style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
-                        suffixIcon: Icon(Icons.remove_red_eye),
+                        labelText: "Password",labelStyle: GoogleFonts.montserrat(fontSize: 16.sp,fontWeight: FontWeight.w400),
+                        suffixIcon: Icon(Icons.remove_red_eye,color: Colors.black,size: 15,),
                         border: OutlineInputBorder(),
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
                   child: Row(
                     children: [
                       Checkbox(
+                        activeColor: ktextcolor,
                         value:
                             checkBoxValue, // Define this variable at the class level
                         onChanged: (bool? value) {
@@ -128,7 +128,7 @@ class _signinscreenState extends State<signinscreen> {
                       Text(
                         "Remember me ?",
                         style: TextStyle(
-                            fontSize: 16.0.sp, fontWeight: FontWeight.w500,color: Colors.black),
+                            fontSize: 13.0.sp, fontWeight: FontWeight.w400,color: Colors.black),
                       ),
                     ],
                   ),
@@ -137,20 +137,20 @@ class _signinscreenState extends State<signinscreen> {
                   height: 47.h,
                 ),
                 MaterialButton(
-                  minWidth: 312.w,
-                  height: 50.h,
+                  minWidth: 388.w,
+                  height: 59.h,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
-                  color: kprimarycolor,
+                  color:ktextcolor,
                   onPressed: () {
                     _handleFinish();
                   },
                   child: Text(
-                    "Next",
-                    style: GoogleFonts.poppins(
-                        fontSize: 15.sp,
+                    "Login",
+                    style: GoogleFonts.montserrat(
+                        fontSize: 20.sp,
                         color: Colors.white,
-                        fontWeight: FontWeight.w500),
+                        fontWeight: FontWeight.w600),
                   ),
                 ),
                 const SizedBox(
@@ -172,72 +172,10 @@ class _signinscreenState extends State<signinscreen> {
                   ],
                 ),
                 SizedBox(
-                  height: 36.h,
+                  height: 170.1.h,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 1,
-                      width: 133,
-                      margin: const EdgeInsets.symmetric(horizontal: 15),
-                      color: Colors.black,
-                    ),
-                    Text("OR",
-                        style: GoogleFonts.urbanist(
-                            fontSize: 14.sp, fontWeight: FontWeight.w400)),
-                    Container(
-                      height: 1,
-                      width: 133,
-                      margin: const EdgeInsets.symmetric(horizontal: 15),
-                      color: Colors.black,
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 30.h,
-                ),
-                SizedBox(
-                  height: 45.h,
-                  width: 312.w,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Your action on button press
-                    },
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              8.0), // Adjust the corner radius as needed
-                          side: const BorderSide(
-                              color: Color(0xff37474F),
-                              width: 1), // Set the border color and width
-                        ),
-                      ),
-
-                      // Adjust the padding as needed
-                      backgroundColor: MaterialStateProperty.all(
-                          Colors.white), // Set the background color
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Image(image: AssetImage("images/google.png")),
-                        Text("Sign in with Google",
-                            style: GoogleFonts.poppins(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.black)),
-                        SizedBox(
-                          width: 25.w,
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 30.h,
-                ),
+              
+            
                 GestureDetector(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -248,18 +186,15 @@ class _signinscreenState extends State<signinscreen> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text("Need an account  ?",
-                            style: GoogleFonts.poppins(
-                                fontSize: 15.sp, fontWeight: FontWeight.w500)),
+                            style: GoogleFonts.montserrat(
+                                fontSize: 15.sp, fontWeight: FontWeight.w400,color: Colors.black)),
                       ),
-                      Text(
-                        'SIGNUP',
-                        style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w500),
-                      ),
+                      Text("Sign Up",
+                            style: GoogleFonts.montserrat(
+                                fontSize: 15.sp, fontWeight: FontWeight.w400,color:ktextcolor)),
                     ],
                   ),
+                  
                   onTap: () {
                     // Navigator.push(
                     //     context,
@@ -267,7 +202,8 @@ class _signinscreenState extends State<signinscreen> {
                     //       builder: (_) => const signinscreen(),
                     //     ));
                   },
-                )
+                ),
+              
               ]),
             ),
           ),

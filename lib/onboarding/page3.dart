@@ -11,31 +11,9 @@ class page3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-          child: Center(
-        child: Column(
-          children: [
-           SizedBox(
-              height: 20.h,
-            ),
-            
-          SizedBox(
-              height: 50.h,
-            ),
-             const Image(image: AssetImage("images/onboardimage3.png")),
-          SizedBox(
-              height: 50.h,
-            ),
-            
-            SizedBox(height: 7,),
-            Text(
-              "Stay on top of the latest \n weather event with our \n    notification feature",
-              style: GoogleFonts.poppins(fontSize: 20.sp,fontWeight: FontWeight.w500,color: ktextcolor),
-            )
-          ],
-        ),
-      )),
+    return const Scaffold(
+      backgroundColor: Colors.white,
+      body: Image(image: AssetImage("images/onboardimage3.png")),
     );
   }
 }

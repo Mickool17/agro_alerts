@@ -36,6 +36,16 @@ class _signupscreen3State extends State<signupscreen3> {
     "Livestock (cattle, poultry, sheep, pigs, etc)",
     "Other"
   ];
+  List<bool> soiltypeValues = [
+    false,
+    false,
+    false
+  ];
+  List<String> soiltypeBoxNames = [
+    "Loamy soil",
+    "Sandy soil",
+    "Other"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,91 +54,55 @@ class _signupscreen3State extends State<signupscreen3> {
           child: Center(
             child: Expanded(
               child: Column(children: [
-                SizedBox(
-                  height: 90.h,
+                
+            
+              
+                 Row(
+                   children: [
+                     SizedBox(
+                            height: 200,
+                            child: Image.asset("images/registration logo.png")),
+                   ],
+                 ),
+                  Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Text(
+                    "Register with us",
+                    style: GoogleFonts.montserrat(
+                        color: ktextcolor,
+                        fontSize: 32.sp,
+                        fontWeight: FontWeight.w600),
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 24.w,
-                          ),
-                          SizedBox(
-                            height: 46.h,
-                            width: 46.w,
-                            child: CircleAvatar(
-                                backgroundColor: Colors.green,
-                                child: Icon(
-                                  Icons.check,
-                                  size: 25.sp,
-                                )),
-                          ),
-                          SizedBox(height: 8.h),
-                          Container(
-                            height: 1,
-                            width: 66,
-                            margin: const EdgeInsets.symmetric(horizontal: 15),
-                            color: Colors.black,
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 46.h,
-                      width: 46.w,
-                      child: CircleAvatar(
-                          backgroundColor: Colors.green,
-                          child: Icon(
-                            Icons.check,
-                            size: 25.sp,
-                          )),
-                    ),
-                    SizedBox(height: 8.h),
-                    Container(
-                      height: 1,
-                      width: 66,
-                      margin: const EdgeInsets.symmetric(horizontal: 15),
-                      color: Colors.black,
-                    ),
-                    SizedBox(
-                      height: 46.h,
-                      width: 46.w,
-                      child: CircleAvatar(
-                        child: Text(
-                          "3",
-                          style: GoogleFonts.poppins(
-                              fontSize: 24.sp,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 24.w,
-                    ),
-                  ],
+                SizedBox(height: 10.h,),
+                 Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Text(
+                    "Lets get you started on your \n                  journey",
+                    style: GoogleFonts.montserrat(
+                        color: Colors.black,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600),
+                  ),
                 ),
-                SizedBox(
-                  height: 50.h,
-                ),
+                SizedBox(height: 110.h,),
+                
+                  
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.w),
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(5.r),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
                     child: Container(
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(5.r),
+                        borderRadius: BorderRadius.circular(10.r),
                       ),
                       child: ExpansionTile(
                         title: Text(
-                          "Select  all that apply",
+                          "Soil Types",
                           style: GoogleFonts.poppins(
                               fontSize: 15.0,
                               fontWeight: FontWeight.w500,
@@ -159,66 +133,46 @@ class _signupscreen3State extends State<signupscreen3> {
                 SizedBox(
                   height: 20.h,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25.w),
-                  child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text(
-                        "Location",
-                        style: GoogleFonts.poppins(
-                            color: const Color(0xff1F2D5A),
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w500),
-                      )),
-                ),
-                Padding(
+                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.w),
                   child: Container(
-                    height: 45.h,
-                    width: 312.w,
+                   
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(5.r),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
-                    child: const TextField(
-                       style: TextStyle(color: Colors.black),
-                      keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                    child: Container(
+                     
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10.r),
                       ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25.w),
-                  child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text(
-                        "Soil Type",
-                        style: GoogleFonts.poppins(
-                            color: const Color(0xff1F2D5A),
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w500),
-                      )),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25.w),
-                  child: Container(
-                    height: 45.h,
-                    width: 312.w,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(5.r),
-                    ),
-                    child: const TextField(
-                       style: TextStyle(color: Colors.black),
-                      keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
-                      
-                        border: OutlineInputBorder(),
+                      child: ExpansionTile(
+                        title: Text(
+                          "Crop type",
+                          style: GoogleFonts.poppins(
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xff1F2D5A)),
+                        ),
+                        children: soiltypeBoxNames
+                            .asMap()
+                            .entries
+                            .map(
+                              (entry) => CheckboxListTile(
+                              
+                                title: Text(entry.value,style: TextStyle(color: Colors.black),),
+                                value: checkBoxValues[entry.key],
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    checkBoxValues[entry.key] = value ?? false;
+                                  });
+                                },
+                                controlAffinity:
+                                    ListTileControlAffinity.leading,
+                              ),
+                            )
+                            .toList(),
                       ),
                     ),
                   ),
@@ -227,33 +181,23 @@ class _signupscreen3State extends State<signupscreen3> {
                   height: 50.h,
                 ),
                 MaterialButton(
-                  minWidth: 312.w,
-                  height: 50.h,
+                  minWidth: 388.w,
+                  height: 59.h,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
-                  color: kprimarycolor,
+                  color: ktextcolor,
                   onPressed: () {
                     _handleFinish();
                   },
                   child: Text(
-                    "SIGN UP",
-                    style: GoogleFonts.poppins(
-                        fontSize: 15.sp,
+                    "Register",
+                    style: GoogleFonts.montserrat(
+                        fontSize: 20.sp,
                         color: Colors.white,
-                        fontWeight: FontWeight.w500),
+                        fontWeight: FontWeight.w600,fontStyle: FontStyle.normal),
                   ),
                 ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Text(
-                  "Back",
-                  style: GoogleFonts.poppins(
-                      fontSize: 15.sp,
-                      color: const Color(0xff1F2D5A),
-                      fontWeight: FontWeight.w500,
-                      decoration: TextDecoration.underline),
-                ),
+               
               ]),
             ),
           ),
