@@ -1,4 +1,5 @@
 import 'package:agro_alerts/models/nighttime_viewmodel.dart';
+import 'package:agro_alerts/screens/moredetailsscreen.dart';
 
 import 'package:agro_alerts/screens/updateprofile.dart';
 import 'package:flutter/material.dart';
@@ -452,7 +453,7 @@ class SecondHomeScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-           bottom: -20,
+              bottom: -20,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Column(
@@ -478,6 +479,101 @@ class SecondHomeScreen extends StatelessWidget {
                     ),
                     SizedBox(
                       height: 22.h,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const MoreDetailsScreen(),
+                        ));
+
+                      },
+                      child: Container(
+                        width: 386.715,
+                        height: 118.188,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: Colors.green,
+                            width: 1,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.11),
+                              spreadRadius: 0,
+                              blurRadius: 37,
+                              offset: Offset(0, 9),
+                            ),
+                          ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 10),
+                          child: Row(
+                            children: [
+                              Image.asset("images/yam.png"),
+                              SizedBox(
+                                width: 5.w,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Yam (Dioscorea alata)",
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.black,
+                                      )),
+                                  SizedBox(
+                                    height: 15.w,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.thermostat),
+                                      Text("77-86  F",
+                                          style: GoogleFonts.montserrat(
+                                            fontSize: 12.sp,
+                                            fontWeight: FontWeight.w500,
+                                            color: Colors.black,
+                                          )),
+                                      SizedBox(
+                                        width: 67.w,
+                                      ),
+                                      Row(
+                                        children: [
+                                          Icon(Icons.water),
+                                          Text("86%",
+                                              style: GoogleFonts.montserrat(
+                                                fontSize: 14.sp,
+                                                fontWeight: FontWeight.w500,
+                                                color: Colors.black,
+                                              )),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.water_drop),
+                                      Text("15000mm",
+                                          style: GoogleFonts.montserrat(
+                                            fontSize: 14.sp,
+                                            fontWeight: FontWeight.w500,
+                                            color: Colors.black,
+                                          )),
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 14.65.h,
                     ),
                     Container(
                       width: 386.715,
@@ -561,91 +657,10 @@ class SecondHomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                     SizedBox(height: 14.65.h,),
-                     Container(
-                      width: 386.715,
-                      height: 118.188,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: Colors.green,
-                          width: 1,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.11),
-                            spreadRadius: 0,
-                            blurRadius: 37,
-                            offset: Offset(0, 9),
-                          ),
-                        ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 15, horizontal: 10),
-                        child: Row(
-                          children: [
-                            Image.asset("images/yam.png"),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Yam (Dioscorea alata)",
-                                    style: GoogleFonts.montserrat(
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black,
-                                    )),
-                                SizedBox(
-                                  height: 15.w,
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(Icons.thermostat),
-                                    Text("77-86  F",
-                                        style: GoogleFonts.montserrat(
-                                          fontSize: 12.sp,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black,
-                                        )),
-                                    SizedBox(
-                                      width: 67.w,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.water),
-                                        Text("86%",
-                                            style: GoogleFonts.montserrat(
-                                              fontSize: 14.sp,
-                                              fontWeight: FontWeight.w500,
-                                              color: Colors.black,
-                                            )),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(Icons.water_drop),
-                                    Text("15000mm",
-                                        style: GoogleFonts.montserrat(
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black,
-                                        )),
-                                  ],
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
+                    SizedBox(
+                      height: 14.65.h,
                     ),
-                    SizedBox(height: 14.65.h,),
-                     Container(
+                    Container(
                       width: 386.715,
                       height: 118.188,
                       decoration: BoxDecoration(
