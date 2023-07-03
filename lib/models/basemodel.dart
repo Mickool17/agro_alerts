@@ -12,6 +12,7 @@ import 'package:stacked/stacked.dart';
 
 class BaseModel extends BaseViewModel {
   String animal = '';
+  String formattedDate = '';
   String temperature = '';
   String moment = '';
   String userLocation = '';
@@ -126,6 +127,7 @@ class BaseModel extends BaseViewModel {
     final pressureData = data['current']['pressure_mb'].toString();
 
     temperature = '$temp\u00B0';
+    formattedDate = DateFormat('EEE, MMMM d, yyyy').format(datetime);
     moment = conditionText;
     weatherIcon = 'https:$conditionIcon';
     userLocation = currentUserLocation;

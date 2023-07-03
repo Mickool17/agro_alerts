@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Column(
                   children: [
                     SizedBox(
-                      height: 24,
+                      height: 24.h,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -82,16 +82,16 @@ class _HomeScreenState extends State<HomeScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Iwo",
+                                model.userLocation,
                                 style: GoogleFonts.montserrat(
                                     fontSize: 24,
                                     fontWeight: FontWeight.w600,
                                     color: Colors.white),
                               ),
                               Text(
-                                "Wednesday 3rd  Dec 2023",
+                                model.formattedDate,
                                 style: GoogleFonts.montserrat(
-                                  fontSize: 16,
+                                  fontSize: 16.sp,
                                   fontWeight: FontWeight.w500,
                                   color: Colors.white,
                                 ),
@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           IconButton(
                             icon: Icon(
                               Icons.notifications_outlined,
-                              size: 30,
+                              size: 30.r,
                               color: Colors.white,
                             ),
                             onPressed: () {},
@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     SizedBox(
-                      height: 78,
+                      height: 78.h,
                     ),
                   ],
                 ),
@@ -120,8 +120,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   right: 10,
                   child: Center(
                     child: Container(
-                      width: 386.715,
-                      height: 600.79,
+                      width: 386.715.w,
+                      height: 600.79.h,
                       decoration: BoxDecoration(
                         color: Colors.white, // This makes the background white
                         borderRadius: BorderRadius.circular(
@@ -153,13 +153,30 @@ class _HomeScreenState extends State<HomeScreen> {
                             SizedBox(
                               height: 20.h,
                             ),
-                            Center(child: Image.asset("images/image.png")),
+                            Center(
+                                child:
+
+                                
+                                
+                                
+                                Image.network (
+                              model.weatherIcon,
+                              width: 300,
+                              height: 100,
+                              scale: 0.1,
+                              errorBuilder: (BuildContext context,
+                                        Object exception,
+                                        StackTrace? stackTrace) {
+                                      // Return shimmer effect in case of error
+                                      return Container();
+                                    },
+                            )),
                             SizedBox(
                               height: 26.94.h,
                             ),
                             Center(
                               child: Text(
-                                "62",
+                                '${model.temperature}C',
                                 style: GoogleFonts.montserrat(
                                   fontSize: 40,
                                   fontWeight: FontWeight.w700,
@@ -172,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             Center(
                               child: Text(
-                                "Partly Clouded",
+                                model.moment,
                                 style: GoogleFonts.montserrat(
                                   fontSize: 24,
                                   fontWeight: FontWeight.w500,
@@ -216,540 +233,590 @@ class _HomeScreenState extends State<HomeScreen> {
 class SecondHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: Stack(
-          children: [
-            Column(
-              children: [
-                Expanded(
-                  flex: 0,
-                  child: Container(
-                    height: 239.993.h,
-                    color: Colors.green,
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-
-            Column(
-              children: [
-                SizedBox(
-                  height: 24,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return ViewModelBuilder<HomescreendarkViewModel>.reactive(
+        viewModelBuilder: () => HomescreendarkViewModel(),
+        onViewModelReady: (model) {
+          model.setInitialised(true);
+          model.getTemperature();
+          model.weeklyWeather;
+        },
+        builder: (context, model, child) {
+          return SafeArea(
+            child: Scaffold(
+              backgroundColor: Colors.white,
+              body: Stack(
+                children: [
+                  Column(
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Iwo",
-                            style: GoogleFonts.montserrat(
-                                fontSize: 24,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white),
-                          ),
-                          Text(
-                            "Wednesday 3rd  Dec 2023",
-                            style: GoogleFonts.montserrat(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
+                      Expanded(
+                        flex: 0,
+                        child: Container(
+                          height: 239.993.h,
+                          color: Colors.green,
+                        ),
                       ),
-                      IconButton(
-                        icon: Icon(
-                          Icons.notifications_outlined,
-                          size: 30,
+                      Expanded(
+                        flex: 1,
+                        child: Container(
                           color: Colors.white,
                         ),
-                        onPressed: () {},
                       ),
                     ],
                   ),
-                ),
-                SizedBox(
-                  height: 78,
-                ),
-              ],
-            ),
-            // This Center positions the Container in the middle of the screen.
-            Positioned(
-              top: 120,
-              right: 10,
-              child: Center(
-                child: Container(
-                  width: 386.715,
-                  height: 240.79,
-                  decoration: BoxDecoration(
-                    color: Colors.white, // This makes the background white
-                    borderRadius: BorderRadius.circular(
-                        10), // This applies the border radius
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black
-                            .withOpacity(0.11), // This applies the box shadow
-                        spreadRadius: 0,
-                        blurRadius: 37,
-                        offset: Offset(0, 9), // changes position of shadow
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: 24.h,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  model.userLocation,
+                                  style: GoogleFonts.montserrat(
+                                      fontSize: 24.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white),
+                                ),
+                                Text(
+                                  model.formattedDate,
+                                  style: GoogleFonts.montserrat(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            IconButton(
+                              icon: Icon(
+                                Icons.notifications_outlined,
+                                size: 30.r,
+                                color: Colors.white,
+                              ),
+                              onPressed: () {},
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 78.h,
                       ),
                     ],
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 24, horizontal: 22),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 40.r,
-                              backgroundColor: const Color(0xff29CA87),
-                              child: Image.asset("images/thermometer.png"),
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "62",
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 20.sp,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                Text(
-                                  "Temperature",
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 13.sp,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              width: 25.w,
-                            ),
-                            CircleAvatar(
-                              radius: 40.r,
-                              backgroundColor: const Color(0xff2AA6CA),
-                              child: Image.asset("images/humidity.png"),
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "62%",
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 20.sp,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                Text(
-                                  "Humidity",
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 13.sp,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 40.h,
-                        ),
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 40.r,
-                              backgroundColor: const Color(0xff9C72C7),
-                              child: Image.asset("images/rainfall.png"),
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "0.0 mm",
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 20.sp,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                Text(
-                                  "Rainfall",
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 13.sp,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              width: 25.w,
-                            ),
-                            CircleAvatar(
-                              radius: 40.r,
-                              backgroundColor: const Color(0xffE4BC1F),
-                              child: Image.asset("images/wind.png"),
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "3.9m/s",
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 20.sp,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                Text(
-                                  "Windspeed",
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 13.sp,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: -20,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Text("Suggested Crops",
-                            style: GoogleFonts.montserrat(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black,
-                            )),
-                        SizedBox(
-                          width: 180.71.w,
-                        ),
-                        Text("View all",
-                            style: GoogleFonts.montserrat(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black,
-                            )),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 22.h,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const MoreDetailsScreen(),
-                        ));
-
-                      },
+                  Positioned(
+                    top: 120,
+                    right: 10,
+                    left: 10,
+                    child: Center(
                       child: Container(
-                        width: 386.715,
-                        height: 118.188,
+                        width: 386.715.w,
+                        height: 251.841.h,
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: Colors.green,
-                            width: 1,
-                          ),
+                          color:
+                              Colors.white, // This makes the background white
+                          borderRadius: BorderRadius.circular(
+                              10), // This applies the border radius
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.11),
+                              color: Colors.black.withOpacity(
+                                  0.11), // This applies the box shadow
                               spreadRadius: 0,
                               blurRadius: 37,
-                              offset: Offset(0, 9),
+                              offset:
+                                  Offset(0, 9), // changes position of shadow
                             ),
                           ],
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 15, horizontal: 10),
-                          child: Row(
+                          padding: const EdgeInsets.symmetric(horizontal: 30),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Image.asset("images/yam.png"),
-                              SizedBox(
-                                width: 5.w,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                              Row(
                                 children: [
-                                  Text("Yam (Dioscorea alata)",
-                                      style: GoogleFonts.montserrat(
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.black,
-                                      )),
-                                  SizedBox(
-                                    height: 15.w,
+                                  Expanded(
+                                    child: CircleAvatar(
+                                      radius: 52.461.r,
+                                      backgroundColor: const Color(0xff29CA87),
+                                      child:
+                                          Image.asset("images/thermometer.png"),
+                                    ),
                                   ),
-                                  Row(
+                                  SizedBox(
+                                    width: 10.03.w,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Icon(Icons.thermostat),
-                                      Text("77-86  F",
-                                          style: GoogleFonts.montserrat(
-                                            fontSize: 12.sp,
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.black,
-                                          )),
-                                      SizedBox(
-                                        width: 67.w,
+                                      Text(
+                                          '${model.temperature}C',
+                                        style: GoogleFonts.montserrat(
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                        ),
                                       ),
-                                      Row(
-                                        children: [
-                                          Icon(Icons.water),
-                                          Text("86%",
-                                              style: GoogleFonts.montserrat(
-                                                fontSize: 14.sp,
-                                                fontWeight: FontWeight.w500,
-                                                color: Colors.black,
-                                              )),
-                                        ],
+                                      Text(
+                                        "Temperature",
+                                        style: GoogleFonts.montserrat(
+                                          fontSize: 13.sp,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                        ),
                                       ),
                                     ],
                                   ),
-                                  Row(
+                                  SizedBox(
+                                    width: 53.93.w,
+                                  ),
+                                  Expanded(
+                                    child: CircleAvatar(
+                                      radius: 52.461.r,
+                                      backgroundColor: const Color(0xff2AA6CA),
+                                      child: Image.asset("images/humidity.png"),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10.w,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Icon(Icons.water_drop),
-                                      Text("15000mm",
-                                          style: GoogleFonts.montserrat(
-                                            fontSize: 14.sp,
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.black,
-                                          )),
+                                      Text(
+                                        '${model.humidity} %',
+                                        style: GoogleFonts.montserrat(
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Humidity",
+                                        style: GoogleFonts.montserrat(
+                                          fontSize: 13.sp,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ],
-                              )
+                              ),
+                              SizedBox(
+                                height: 40.h,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    child: CircleAvatar(
+                                      radius: 52.461.r,
+                                      backgroundColor: const Color(0xff9C72C7),
+                                      child: Image.asset("images/rainfall.png"),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 7.35.w,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "0.0 mm",
+                                        style: GoogleFonts.montserrat(
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Rainfall",
+                                        style: GoogleFonts.montserrat(
+                                          fontSize: 13.sp,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: 53.93.w,
+                                  ),
+                                  Expanded(
+                                    child: CircleAvatar(
+                                      radius: 52.461.r,
+                                      backgroundColor: const Color(0xffE4BC1F),
+                                      child: Image.asset("images/wind.png"),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10.w,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '${model.windspeed} m/s',
+                                        style: GoogleFonts.montserrat(
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Windspeed",
+                                        style: GoogleFonts.montserrat(
+                                          fontSize: 13.sp,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ],
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 14.65.h,
-                    ),
-                    Container(
-                      width: 386.715,
-                      height: 118.188,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: Colors.green,
-                          width: 1,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.11),
-                            spreadRadius: 0,
-                            blurRadius: 37,
-                            offset: Offset(0, 9),
+                  ),
+                  Positioned(
+                    bottom: -30,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Text("Suggested Crops",
+                                  style: GoogleFonts.montserrat(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black,
+                                  )),
+                              SizedBox(
+                                width: 180.71.w,
+                              ),
+                              Text("View all",
+                                  style: GoogleFonts.montserrat(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black,
+                                  )),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 22.h,
+                          ),
+                          SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (_) =>
+                                              const MoreDetailsScreen(),
+                                        ));
+                                  },
+                                  child: Container(
+                                    width: 386.715,
+                                    height: 118.188,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(
+                                        color: Colors.green,
+                                        width: 1,
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.11),
+                                          spreadRadius: 0,
+                                          blurRadius: 37,
+                                          offset: Offset(0, 9),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 15, horizontal: 10),
+                                      child: Row(
+                                        children: [
+                                          Image.asset("images/yam.png"),
+                                          SizedBox(
+                                            width: 5.w,
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text("Yam (Dioscorea alata)",
+                                                  style: GoogleFonts.montserrat(
+                                                    fontSize: 14.sp,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: Colors.black,
+                                                  )),
+                                              SizedBox(
+                                                height: 15.w,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Icon(Icons.thermostat),
+                                                  Text("77-86  F",
+                                                      style: GoogleFonts
+                                                          .montserrat(
+                                                        fontSize: 12.sp,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: Colors.black,
+                                                      )),
+                                                  SizedBox(
+                                                    width: 67.w,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Icon(Icons.water),
+                                                      Text("86%",
+                                                          style: GoogleFonts
+                                                              .montserrat(
+                                                            fontSize: 14.sp,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            color: Colors.black,
+                                                          )),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Icon(Icons.water_drop),
+                                                  Text("15000mm",
+                                                      style: GoogleFonts
+                                                          .montserrat(
+                                                        fontSize: 14.sp,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: Colors.black,
+                                                      )),
+                                                ],
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 14.65.h,
+                                ),
+                                Container(
+                                  width: 386.715,
+                                  height: 118.188,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                      color: Colors.green,
+                                      width: 1,
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.11),
+                                        spreadRadius: 0,
+                                        blurRadius: 37,
+                                        offset: Offset(0, 9),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 15, horizontal: 10),
+                                    child: Row(
+                                      children: [
+                                        Image.asset("images/yam.png"),
+                                        SizedBox(
+                                          width: 5.w,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text("Yam (Dioscorea alata)",
+                                                style: GoogleFonts.montserrat(
+                                                  fontSize: 14.sp,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Colors.black,
+                                                )),
+                                            SizedBox(
+                                              height: 15.w,
+                                            ),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.thermostat),
+                                                Text("77-86  F",
+                                                    style:
+                                                        GoogleFonts.montserrat(
+                                                      fontSize: 12.sp,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Colors.black,
+                                                    )),
+                                                SizedBox(
+                                                  width: 67.w,
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Icon(Icons.water),
+                                                    Text("86%",
+                                                        style: GoogleFonts
+                                                            .montserrat(
+                                                          fontSize: 14.sp,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: Colors.black,
+                                                        )),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.water_drop),
+                                                Text("15000mm",
+                                                    style:
+                                                        GoogleFonts.montserrat(
+                                                      fontSize: 14.sp,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Colors.black,
+                                                    )),
+                                              ],
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 14.65.h,
+                                ),
+                                Container(
+                                  width: 386.715,
+                                  height: 118.188,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                      color: Colors.green,
+                                      width: 1,
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.11),
+                                        spreadRadius: 0,
+                                        blurRadius: 37,
+                                        offset: Offset(0, 9),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 15, horizontal: 10),
+                                    child: Row(
+                                      children: [
+                                        Image.asset("images/yam.png"),
+                                        SizedBox(
+                                          width: 5.w,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text("Yam (Dioscorea alata)",
+                                                style: GoogleFonts.montserrat(
+                                                  fontSize: 14.sp,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Colors.black,
+                                                )),
+                                            SizedBox(
+                                              height: 15.w,
+                                            ),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.thermostat),
+                                                Text("77-86  F",
+                                                    style:
+                                                        GoogleFonts.montserrat(
+                                                      fontSize: 12.sp,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Colors.black,
+                                                    )),
+                                                SizedBox(
+                                                  width: 67.w,
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Icon(Icons.water),
+                                                    Text("86%",
+                                                        style: GoogleFonts
+                                                            .montserrat(
+                                                          fontSize: 14.sp,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: Colors.black,
+                                                        )),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.water_drop),
+                                                Text("15000mm",
+                                                    style:
+                                                        GoogleFonts.montserrat(
+                                                      fontSize: 14.sp,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Colors.black,
+                                                    )),
+                                              ],
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 15, horizontal: 10),
-                        child: Row(
-                          children: [
-                            Image.asset("images/yam.png"),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Yam (Dioscorea alata)",
-                                    style: GoogleFonts.montserrat(
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black,
-                                    )),
-                                SizedBox(
-                                  height: 15.w,
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(Icons.thermostat),
-                                    Text("77-86  F",
-                                        style: GoogleFonts.montserrat(
-                                          fontSize: 12.sp,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black,
-                                        )),
-                                    SizedBox(
-                                      width: 67.w,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.water),
-                                        Text("86%",
-                                            style: GoogleFonts.montserrat(
-                                              fontSize: 14.sp,
-                                              fontWeight: FontWeight.w500,
-                                              color: Colors.black,
-                                            )),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(Icons.water_drop),
-                                    Text("15000mm",
-                                        style: GoogleFonts.montserrat(
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black,
-                                        )),
-                                  ],
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
                     ),
-                    SizedBox(
-                      height: 14.65.h,
-                    ),
-                    Container(
-                      width: 386.715,
-                      height: 118.188,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: Colors.green,
-                          width: 1,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.11),
-                            spreadRadius: 0,
-                            blurRadius: 37,
-                            offset: Offset(0, 9),
-                          ),
-                        ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 15, horizontal: 10),
-                        child: Row(
-                          children: [
-                            Image.asset("images/yam.png"),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Yam (Dioscorea alata)",
-                                    style: GoogleFonts.montserrat(
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black,
-                                    )),
-                                SizedBox(
-                                  height: 15.w,
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(Icons.thermostat),
-                                    Text("77-86  F",
-                                        style: GoogleFonts.montserrat(
-                                          fontSize: 12.sp,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black,
-                                        )),
-                                    SizedBox(
-                                      width: 67.w,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.water),
-                                        Text("86%",
-                                            style: GoogleFonts.montserrat(
-                                              fontSize: 14.sp,
-                                              fontWeight: FontWeight.w500,
-                                              color: Colors.black,
-                                            )),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(Icons.water_drop),
-                                    Text("15000mm",
-                                        style: GoogleFonts.montserrat(
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black,
-                                        )),
-                                  ],
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-      ),
-    );
+          );
+        });
   }
 }
 
