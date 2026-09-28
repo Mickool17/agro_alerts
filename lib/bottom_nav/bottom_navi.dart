@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import '../screens/home.dart';
 import 'package:agro_alerts/bottom_nav/agro_profile.dart';
 import 'package:agro_alerts/bottom_nav/agro_search.dart';
@@ -64,29 +64,29 @@ class _agronavitemState extends State<agronavitem> {
       controller: _controller,
       screens: _buildScreens(),
       items: _navBarsItems(),
-      confineInSafeArea: true,
+      confineToSafeArea: true,
       backgroundColor: Colors.white, // you can change this to match your design
       handleAndroidBackButtonPress: true,
       resizeToAvoidBottomInset: true,
       stateManagement: true,
-      hideNavigationBarWhenKeyboardShows: true,
+      hideNavigationBarWhenKeyboardAppears: true,
       decoration: const NavBarDecoration(
-       
           colorBehindNavBar: Colors.transparent,
           boxShadow: [
             BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10),
           ]),
-      popAllScreensOnTapOfSelectedTab: true,
-      popActionScreens: PopActionScreensType.once,
+      popBehaviorOnSelectedNavBarItemPress: PopBehavior.once,
       navBarHeight: 68,
-      itemAnimationProperties: const ItemAnimationProperties(
-        duration: Duration(milliseconds: 400),
-        curve: Curves.ease,
-      ),
-      screenTransitionAnimation: const ScreenTransitionAnimation(
-        animateTabTransition: true,
-        curve: Curves.ease,
-        duration: Duration(milliseconds: 200),
+      animationSettings: const NavBarAnimationSettings(
+        navBarItemAnimation: ItemAnimationSettings(
+          duration: Duration(milliseconds: 400),
+          curve: Curves.ease,
+        ),
+        screenTransitionAnimation: ScreenTransitionAnimationSettings(
+          animateTabTransition: true,
+          curve: Curves.ease,
+          duration: Duration(milliseconds: 200),
+        ),
       ),
      navBarStyle: NavBarStyle.style12, // choose the navBar style here
     );

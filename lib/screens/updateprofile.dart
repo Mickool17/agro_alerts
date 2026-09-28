@@ -42,7 +42,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
-            child: Expanded(
+            child: SizedBox(
               child: Column(children: [
                 SizedBox(
                   height: 90.h,

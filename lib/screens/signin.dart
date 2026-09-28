@@ -24,7 +24,7 @@ class _signinscreenState extends State<signinscreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
-            child: Expanded(
+            child: SizedBox(
               child: Column(children: [
                   Row(
                   children: [

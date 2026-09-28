@@ -263,7 +263,7 @@ class _HomeScreendarkState extends State<HomeScreendark> {
                   SizedBox(height: 40.h),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Expanded(
+                    child: SizedBox(
                       child: SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(

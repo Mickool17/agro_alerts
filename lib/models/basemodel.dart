@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:connectivity/connectivity.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
@@ -63,7 +63,7 @@ class BaseModel extends BaseViewModel {
     }
 
     final connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.none) {
+    if (connectivityResult.contains(ConnectivityResult.none)) {
       print('No internet connection. Skipping weather fetch.');
       return;
     }
@@ -234,7 +234,7 @@ class BaseModel extends BaseViewModel {
     });
 
     if (cachedWeeklyWeatherData.every((day) => day != null)) {
-      weeklyWeather = cachedWeeklyWeatherData as List<WeatherDay>;
+      weeklyWeather = cachedWeeklyWeatherData.whereType<WeatherDay>().toList();
       notifyListeners();
       isWeeklyWeatherFetched =
           true; // Set the flag to indicate weather data is fetched

@@ -24,7 +24,7 @@ class _signupscreenState extends State<signupscreen1> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
-            child: Expanded(
+            child: SizedBox(
               child: Column(children: [
                 Row(
                   children: [
